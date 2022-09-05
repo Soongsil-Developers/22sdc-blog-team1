@@ -9,18 +9,17 @@ import Settings from './component/Settings';
 import Newarticle from './component/Newarticle';
 import Profile from './component/Profile';
 import ArticleDetail from './component/Article/ArticleDetail';
-import {useRecoilState} from 'recoil'
-import {authState} from './atoms/auth'
+import { useState } from 'react';
 
 function App() {
 
-  const [auth,setAuth] = useRecoilState(authState)
+  const [auth,setAuth] = useState(false)
   console.log(auth)
   
   return (
     <div>
-      <Navbar/>
-        <Routes> 
+      <Navbar auth={auth}/>
+        <Routes>
           <Route path='/' element={<Home auth={auth}/>}/>
           <Route path='/login' element={<Signin setAuth={setAuth} />}/>
           <Route path='/register' element={<Signup setAuth={setAuth}/>}/>

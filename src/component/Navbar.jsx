@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { authState } from '../atoms/auth'
-// <li> 테그에 있는 데이터들을 배열로 이동 시킨후, map 내장함수를 이용해서 뿌려준다
+
+// <li> 테그에 있는 데이터들을 배열로 이동시킨후, map 내장함수를 이용해서 뿌려준다
 // 로그인 했을떄랑 안했을때 보여지는게 다른데 그 부분을 배열로 표현 할 수 있는지.
 
 // Login/Logout 시 Navbar의 내용 구분
@@ -15,11 +14,10 @@ import { authState } from '../atoms/auth'
 // False : logout
 // { user(state변수)? <>로그인했을때 네브바</> : <>로그인 안했을때 네브바</> }
 
-const Navbar = () => {
+const Navbar = ({ auth }) => {
   const notLoggedIn = ["Home", "Sign in", "Sign up"];
   const isLoggedIn = ["Home", "New Article", "Settings", "username"];
 
-  const auth = useRecoilValue(authState)
  
 
   
